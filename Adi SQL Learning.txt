@@ -1,0 +1,34 @@
+
+CREATE SEQUENCE person_seq start 10000 increment 5;
+CREATE SEQUENCE adr_seq start 20000 increment 2;
+CREATE SEQUENCE edu_seq start 5 increment 1;
+CREATE SEQUENCE job_seq start 1000 increment 3;
+
+CREATE TABLE Address ( id integer, house_name_or_number char(10), area char(15),
+		       landmark char(30), town char(15), city char(15),
+		       district char(15), state char(20), country char(15), pincode integer,
+                       PRIMARY KEY (id) )
+
+CREATE TABLE Education ( id integer, primary_school_name text, 
+						 secondary_school_name text, diploma_college_name text,
+					     degree_college_name text, PRIMARY KEY (id))
+
+CREATE TABLE Job ( id integer, employer char(50), designation char(30), PRIMARY KEY (id))
+
+CREATE TABLE Person ( id integer PRIMARY KEY , fullname text, age smallint, email text, dob date,
+                      adr_id integer, edu_id integer, job_id integer,
+					  FOREIGN KEY(adr_id) REFERENCES Address(id),
+					  FOREIGN KEY(edu_id) REFERENCES Education(id),
+					  FOREIGN KEY(job_id) REFERENCES Job(id))
+
+INSERT INTO Job VALUES ( nextval('job_seq'), 'Infosys', 'System Engineer' )
+INSERT INTO Job VALUES ( nextval('job_seq'), 'TCS', 'IT Analyst' ),
+                       ( nextval('job_seq'), 'Infosys', 'Technology Analyst' )
+
+INSERT INTO Education VALUES ( nextval('edu_seq'), 'Shri Vidyalaya', 'JNV Latur', NULL, 'Dr BATU'),
+                             ( nextval('edu_seq'), 'Shri Vidyalaya', 'Jaykranti Mahavidyalaya', NULL, 'Dr. Shivajirao Nilangekar')
+
+INSERT INTO Address VALUES ( nextval('adr_seq'), 'Plot no 43', 'Gurumauli Nagar', 'Kalamb Gate', 'Latur', 'Latur', 'Latur', 'Maharashtra', 'India', 413512 )
+
+INSERT INTO Person VALUES ( nextval('person_seq'), 'Akash Suryakant Badnale', 28, 'akash.badnale@yahoo.com', '1993-07-08', 20000, 5, 1006 )
+INSERT INTO Person VALUES ( nextval('person_seq'), 'Adarsh Suryakant Badnale', 24, 'adarsh.badnale@yahoo.com', '1997-09-21', 20000, 6, 1000 )
