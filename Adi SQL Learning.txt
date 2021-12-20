@@ -1,8 +1,14 @@
 
+---------------------- CREATE SEQUESNCE QUERIES -----------------------------------------------
+
 CREATE SEQUENCE person_seq start 10000 increment 5;
 CREATE SEQUENCE adr_seq start 20000 increment 2;
 CREATE SEQUENCE edu_seq start 5 increment 1;
 CREATE SEQUENCE job_seq start 1000 increment 3;
+
+---------------------- ------------------------ -----------------------------------------------
+
+---------------------- CREATE TABLE QUERIES --------------------------------------------------------------
 
 CREATE TABLE Address ( id integer, house_name_or_number char(10), area char(15),
 		       landmark char(30), town char(15), city char(15),
@@ -20,6 +26,9 @@ CREATE TABLE Person ( id integer PRIMARY KEY , fullname text, age smallint, emai
 					  FOREIGN KEY(adr_id) REFERENCES Address(id),
 					  FOREIGN KEY(edu_id) REFERENCES Education(id),
 					  FOREIGN KEY(job_id) REFERENCES Job(id))
+---------------------- ------------------------ -----------------------------------------------------------
+
+---------------------- INSERT data into TABLE QUERIES --------------------------------------------------------------------------------------------------------------
 
 INSERT INTO Job VALUES ( nextval('job_seq'), 'Infosys', 'System Engineer' )
 INSERT INTO Job VALUES ( nextval('job_seq'), 'TCS', 'IT Analyst' ),
@@ -32,3 +41,38 @@ INSERT INTO Address VALUES ( nextval('adr_seq'), 'Plot no 43', 'Gurumauli Nagar'
 
 INSERT INTO Person VALUES ( nextval('person_seq'), 'Akash Suryakant Badnale', 28, 'akash.badnale@yahoo.com', '1993-07-08', 20000, 5, 1006 )
 INSERT INTO Person VALUES ( nextval('person_seq'), 'Adarsh Suryakant Badnale', 24, 'adarsh.badnale@yahoo.com', '1997-09-21', 20000, 6, 1000 )
+
+INSERT INTO Job VALUES ( nextval('job_seq'), 'TCS', 'System Engineer' ),( nextval('job_seq'), 'TCS', 'Senior Susytem Enginner' ),
+                       ( nextval('job_seq'), 'TCS', 'Team Lead' ),( nextval('job_seq'), 'TCS', 'Project Manager' ),
+                       ( nextval('job_seq'), 'Infosys', 'Senior Susytem Enginner' ),( nextval('job_seq'), 'Infosys', 'Team Lead' ),
+                       ( nextval('job_seq'), 'Infosys', 'Project Manager' )
+
+INSERT INTO Job VALUES ( nextval('job_seq'), 'L&T', 'System Engineer' ),( nextval('job_seq'), 'Siemens', 'System Engineer' ),
+                       ( nextval('job_seq'), 'TechM', 'System Engineer' ),( nextval('job_seq'), 'Capgemini', 'System Engineer' )
+
+---------------------- ------------------------ ----------------------------------------------------------- -------------------------------------------------------
+
+---------------------- SELECT data FROM TABLE QUERIES -----------------------------------------------------------------------------------------
+
+* Get all the data from table with all the columns ( टेबलं मधला सगळा डेटा दाखवा ) 
+  SELECT * FROM JOB;  ( * म्हणजे All columns )
+
+* Get all data from table with some specific columns ( टेबलं मधला सगळा डेटा दाखवा पण काही मोजकेच columns )
+  SELECT employer, designation FROM Job;   
+
+* Get data from table whose employer is 'TCS' ( पूर्ण टेबलं मधून ते  record पाहिजेत ज्यांच्या  employer column ची value 'TCS' आहे )
+  SELECT * FROM Job WHERE employer='TCS';
+
+* Get data from table whose employer is 'TCS' and designation is 'Project Manager' 
+            ( पूर्ण टेबलं मधून ते  record पाहिजेत ज्यांच्या  employer column ची value 'TCS' आहे आणि designation column ची value 'Project Manager' आहे ) 
+  SELECT * FROM Job WHERE employer='Infosys' AND designation='Project Manager';
+
+* Get data from table whose employer is 'TCS' or designation is 'Project Manager' 
+            ( पूर्ण टेबलं मधून ते  record पाहिजेत ज्यांच्या  employer column ची value 'TCS' आहे किंवा  designation column ची value 'Project Manager' आहे ) 
+  SELECT * FROM Job WHERE employer='Infosys' OR designation='Project Manager';
+
+NOTE : AND means every condition has to be true
+       OR means any one of the condition has to be true
+
+
+---------------------- ------------------------ ----------------------------------------------------------- -----------------------------------
