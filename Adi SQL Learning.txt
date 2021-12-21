@@ -34,13 +34,13 @@ INSERT INTO Job VALUES ( nextval('job_seq'), 'Infosys', 'System Engineer' )
 INSERT INTO Job VALUES ( nextval('job_seq'), 'TCS', 'IT Analyst' ),
                        ( nextval('job_seq'), 'Infosys', 'Technology Analyst' )
 
-INSERT INTO Education VALUES ( nextval('edu_seq'), 'Shri Vidyalaya', 'JNV Latur', NULL, 'Dr BATU'),
-                             ( nextval('edu_seq'), 'Shri Vidyalaya', 'Jaykranti Mahavidyalaya', NULL, 'Dr. Shivajirao Nilangekar')
+INSERT INTO Education VALUES ( nextval('edu_seq'), 'Shri Vidyalaya', 'Dayanand College', NULL, 'Bidwe College of Engineering'),
+                             ( nextval('edu_seq'), 'Shri Vidyalaya', 'Shahu College', NULL, 'Shahu Mahavidyala')
 
-INSERT INTO Address VALUES ( nextval('adr_seq'), 'Plot no 43', 'Gurumauli Nagar', 'Kalamb Gate', 'Latur', 'Latur', 'Latur', 'Maharashtra', 'India', 413512 )
+INSERT INTO Address VALUES ( nextval('adr_seq'), 'Latur', 'Latur', 'Latur', 'Latur', 'Latur', 'Latur', 'Maharashtra', 'India', 413512 )
 
-INSERT INTO Person VALUES ( nextval('person_seq'), 'Akash Suryakant Badnale', 28, 'akash.badnale@yahoo.com', '1993-07-08', 20000, 5, 1006 )
-INSERT INTO Person VALUES ( nextval('person_seq'), 'Adarsh Suryakant Badnale', 24, 'adarsh.badnale@yahoo.com', '1997-09-21', 20000, 6, 1000 )
+INSERT INTO Person VALUES ( nextval('person_seq'), 'Akash', 25, 'akash@gmail.com', '1990-01-01', 20000, 5, 1006 )
+INSERT INTO Person VALUES ( nextval('person_seq'), 'Adarsh', 21, 'adarsh@gmail.com', '1995-01-01', 20000, 6, 1000 )
 
 INSERT INTO Job VALUES ( nextval('job_seq'), 'TCS', 'System Engineer' ),( nextval('job_seq'), 'TCS', 'Senior Susytem Enginner' ),
                        ( nextval('job_seq'), 'TCS', 'Team Lead' ),( nextval('job_seq'), 'TCS', 'Project Manager' ),
